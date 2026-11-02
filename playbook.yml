@@ -1,0 +1,12 @@
+---
+- name: Deploy nginx
+  hosts: webservers
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Install nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+      update_cache: yes
